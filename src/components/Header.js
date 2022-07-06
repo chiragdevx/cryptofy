@@ -59,6 +59,7 @@ import {
                // value={currency}
                 style={{ width: 100, height: 40, marginLeft: 15 }}
                 //onChange={(e) => setCurrency(e.target.value)}
+                
               >
                 <MenuItem value={"USD"}>USD</MenuItem>
                 <MenuItem value={"INR"}>INR</MenuItem>
