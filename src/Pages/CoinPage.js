@@ -1,29 +1,29 @@
 import { LinearProgress, makeStyles, Typography } from "@material-ui/core";
-// import axios from "axios";
-// import { useEffect, useState } from "react";
-// import { useParams } from "react-router-dom";
-// import ReactHtmlParser from "react-html-parser";
-// import CoinInfo from "../components/CoinInfo";
-// import { SingleCoin } from "../config/api";
-// import { numberWithCommas } from "../components/CoinsTable";
-// import { CryptoState } from "../CryptoContext";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import ReactHtmlParser from "react-html-parser";
+import CoinInfo from "../components/CoinInfo";
+import { SingleCoin } from "../components/config/api";
+import { numberWithCommas } from "../components/CoinsTable";
+import { CryptoState } from "../CryptoContext";
 
 const CoinPage = () => {
-  // const { id } = useParams();
-  // const [coin, setCoin] = useState();
+  const { id } = useParams();
+  const [coin, setCoin] = useState();
 
-  // const { currency, symbol } = CryptoState();
+  const { currency, symbol } = CryptoState();
 
-  // const fetchCoin = async () => {
-  //   const { data } = await axios.get(SingleCoin(id));
+  const fetchCoin = async () => {
+    const { data } = await axios.get(SingleCoin(id));
 
-  //   setCoin(data);
-  // };
+    setCoin(data);
+  };
 
-  // useEffect(() => {
-  //   fetchCoin();
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, []);
+  useEffect(() => {
+    fetchCoin();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const useStyles = makeStyles((theme) => ({
     container: {
@@ -76,13 +76,13 @@ const CoinPage = () => {
     },
   }));
 
-   const classes = useStyles();
+  const classes = useStyles();
 
-  // if (!coin) return <LinearProgress style={{ backgroundColor: "gold" }} />;
+  if (!coin) return <LinearProgress style={{ backgroundColor: "gold" }} />;
 
   return (
     <div className={classes.container}>
-      {/* <div className={classes.sidebar}>
+      <div className={classes.sidebar}>
         <img
           src={coin?.image.large}
           alt={coin?.name}
@@ -150,7 +150,7 @@ const CoinPage = () => {
           </span>
         </div>
       </div>
-      <CoinInfo coin={coin} /> */}
+      <CoinInfo coin={coin} />
     </div>
   );
 };
